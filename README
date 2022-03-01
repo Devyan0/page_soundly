@@ -1,5 +1,10 @@
 score paging application
 
+# using opencv to recognize music notes
+opencv: image / video processing module
+    https://hackids.tistory.com/119
+    google: "opencv python music notes"
+
 reference
 https://windflex.tistory.com/174?category=839823
 https://librosa.org/doc/latest/auto_examples/plot_audio_playback.html#sphx-glr-auto-examples-plot-audio-playback-py
