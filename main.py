@@ -17,6 +17,8 @@ from scipy.fftpack import fft
 import time
 from tkinter import TclError
 
+import sys
+
 # constants
 CHUNK = 1024 * 2             # samples per frame
 FORMAT = pyaudio.paInt16     # audio format (bytes per sample?)
@@ -115,6 +117,11 @@ while True:
         print('stream stopped')
         print('average frame rate = {:.0f} FPS'.format(frame_rate))
         break
+
+
+"""
+axes.Axes
+"""
 
 
 """
