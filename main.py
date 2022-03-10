@@ -115,3 +115,8 @@ while True:
         print('stream stopped')
         print('average frame rate = {:.0f} FPS'.format(frame_rate))
         break
+
+
+"""
+axes.Axes
+"""
