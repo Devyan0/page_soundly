@@ -7,7 +7,7 @@ then displayed using matplotlib
 
 scipy.fft pack computes the FFT
 """
-
+import sys
 import pyaudio
 import os
 import struct
@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 from scipy.fftpack import fft
 import time
 from tkinter import TclError
+from scipy.signal import find_peaks
 
 # constants
 CHUNK = 1024 * 2             # samples per frame
@@ -39,31 +40,17 @@ stream = p.open(
     frames_per_buffer=CHUNK  #Size of chunck (Chunk = Sample per frame)
 )
 
-# create matplotlib figure and axes
-fig, (ax1, ax2) = plt.subplots(2, figsize=(15, 7))
-
-# pyaudio class instance
-p = pyaudio.PyAudio()
-
-# stream object to get data from microphone
-stream = p.open(
-    format=FORMAT,
-    channels=CHANNELS,
-    rate=RATE,
-    input=True,
-    output=True,
-    frames_per_buffer=CHUNK
-)
-
 # variable for plotting
 x = np.arange(0, 2 * CHUNK, 2)       # samples (waveform)
 xf = np.linspace(0, RATE, CHUNK)     # frequencies (spectrum)
 
 # create a line object with random data
-line, = ax1.plot(x, np.random.rand(CHUNK), '-', lw=2)
+line, = ax1.plot(x, np.zeros(CHUNK), '-', lw=2)
+
+
 
 # create semilogx line for spectrum
-line_fft, = ax2.semilogx(xf, np.random.rand(CHUNK), '-', lw=2)
+line_fft, = ax2.plot(xf, np.zeros(CHUNK), '-', lw=2)
 
 # format waveform axes
 ax1.set_title('AUDIO WAVEFORM')
@@ -75,8 +62,10 @@ plt.setp(ax1, xticks=[0, CHUNK, 2 * CHUNK], yticks=[0, 128, 255])
 
 # format spectrum axes
 ax2.set_xlim(20, RATE / 2)
+ax2.set_ylim(0, 10000)
 
-plt.show(block=False)
+
+plt.show(block=False) #creates an empty frozen window
 
 print('stream started')
 
@@ -99,7 +88,24 @@ while True:
 
     # compute FFT and update line
     yf = fft(data_int)
-    line_fft.set_ydata(np.abs(yf[0:CHUNK]) / (128 * CHUNK))
+    freq_value = np.abs(yf[0:CHUNK]) * 2 / (256 * CHUNK)
+    line_fft.set_ydata(10000*freq_value)
+
+    # print("데이터 들어오는 것", data_int)
+    # print("fft 데이터", yf)
+
+    np.set_printoptions(threshold=sys.maxsize)
+    freq_value[0]=0
+    #print("Expected_Frequency",10000*freq_value)
+    print(22 * np.argmax(freq_value))
+
+    #max_index = np.argmax(freq_value)
+    #print(max_index)
+
+    #peaks, _ = find_peaks(freq_value, height=0.3)
+    #print(peaks)
+
+
 
     # update figure canvas
     try:
