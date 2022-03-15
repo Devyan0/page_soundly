@@ -61,7 +61,7 @@ ax1.set_xlim(0, 2 * CHUNK)
 plt.setp(ax1, xticks=[0, CHUNK, 2 * CHUNK], yticks=[0, 128, 255])
 
 # format spectrum axes
-ax2.set_xlim(20, RATE / 2)
+ax2.set_xlim(0, 22528)
 ax2.set_ylim(0, 10000)
 
 
@@ -97,7 +97,109 @@ while True:
     np.set_printoptions(threshold=sys.maxsize)
     freq_value[0]=0
     #print("Expected_Frequency",10000*freq_value)
-    print(22 * np.argmax(freq_value))
+    max_value_frequency = 22 * np.argmax(freq_value)
+    #print(max_value_frequency)
+
+    if max_value_frequency>213.7 and max_value_frequency<226.4:
+        print(f'음: 3 옥타브 라')
+    elif max_value_frequency>226.4 and max_value_frequency<239.9:
+        print(f'음: 3 옥타브 라#')
+    elif max_value_frequency > 239.9 and max_value_frequency < 254.18:
+        print(f'음: 3 옥타브 시')
+    elif max_value_frequency > 254.18 and max_value_frequency < 269.3:
+        print(f'음: 4 옥타브 도')
+    elif max_value_frequency>269.3 and max_value_frequency<285.3:
+        print(f'음: 4 옥타브 도#')
+    elif max_value_frequency>285.3 and max_value_frequency<302.3:
+        print(f'음: 4 옥타브 레')
+    elif max_value_frequency>302.3 and max_value_frequency<320.24:
+        print(f'음: 4 옥타브 레#')
+    elif max_value_frequency > 320.24 and max_value_frequency < 339.3:
+        print(f'음: 4 옥타브 미')
+    elif max_value_frequency > 339.3 and max_value_frequency < 359.46:
+        print(f'음: 4 옥타브 파')
+    elif max_value_frequency > 359.46 and max_value_frequency < 380.84:
+        print(f'음: 4 옥타브 파#')
+    elif max_value_frequency > 380.84 and max_value_frequency < 403.48:
+        print(f'음: 4 옥타브 솔')
+    elif max_value_frequency > 403.48 and max_value_frequency < 427.47:
+        print(f'음: 4 옥타브 솔#')
+    elif max_value_frequency > 427.47 and max_value_frequency < 452.89:
+        print(f'음: 4 옥타브 라')
+    elif max_value_frequency > 452.89 and max_value_frequency < 479.82:
+        print(f'음: 4 옥타브 라#')
+    elif max_value_frequency > 479.82 and max_value_frequency < 508.36:
+        print(f'음: 4 옥타브 시')
+    elif max_value_frequency > 508.36 and max_value_frequency < 538.58:
+        print(f'음: 5 옥타브 도')
+    elif max_value_frequency > 538.58 and max_value_frequency < 570.61:
+        print(f'음: 5 옥타브 도#')
+    elif max_value_frequency > 570.61 and max_value_frequency < 604.54:
+        print(f'음: 5 옥타브 레')
+    elif max_value_frequency > 604.54 and max_value_frequency < 640.49:
+        print(f'음: 5 옥타브 레#')
+    elif max_value_frequency > 640.49 and max_value_frequency < 678.57:
+        print(f'음: 5 옥타브 미')
+    elif max_value_frequency > 678.57 and max_value_frequency < 718.92:
+        print(f'음: 5 옥타브 파')
+    elif max_value_frequency > 718.92 and max_value_frequency < 761.67:
+        print(f'음: 5 옥타브 파#')
+    elif max_value_frequency > 761.67 and max_value_frequency < 806.96:
+        print(f'음: 5 옥타브 솔')
+    elif max_value_frequency > 806.96 and max_value_frequency < 854.95:
+        print(f'음: 5 옥타브 솔#')
+    elif max_value_frequency > 854.95 and max_value_frequency < 905.79:
+        print(f'음: 5 옥타브 라')
+    elif max_value_frequency > 905.79 and max_value_frequency < 959.65:
+        print(f'음: 5 옥타브 라#')
+    elif max_value_frequency > 959.65 and max_value_frequency < 1016.71:
+        print(f'음: 5 옥타브 시')
+    elif max_value_frequency > 1016.71 and max_value_frequency < 1077.17:
+        print(f'음: 6 옥타브 도')
+    elif max_value_frequency > 1077.17 and max_value_frequency < 1141.22:
+        print(f'음: 6 옥타브 도#')
+    elif max_value_frequency > 1141.22 and max_value_frequency < 1209.1:
+        print(f'음: 6 옥타브 레')
+    elif max_value_frequency > 1209.1 and max_value_frequency < 1280.97:
+        print(f'음: 6 옥타브 레#')
+    elif max_value_frequency > 1280.97 and max_value_frequency < 1357.15:
+        print(f'음: 6 옥타브 미')
+    elif max_value_frequency > 1357.15 and max_value_frequency < 1437.85:
+        print(f'음: 6 옥타브 파')
+    elif max_value_frequency > 1437.85 and max_value_frequency < 1523.34:
+        print(f'음: 6 옥타브 파#')
+    elif max_value_frequency > 1523.34 and max_value_frequency < 1613.93:
+        print(f'음: 6 옥타브 솔')
+    elif max_value_frequency > 1613.93 and max_value_frequency < 1709.9:
+        print(f'음: 6 옥타브 솔#')
+    elif max_value_frequency > 1709.9 and max_value_frequency < 1811.57:
+        print(f'음: 6 옥타브 라')
+    elif max_value_frequency > 1811.57 and max_value_frequency < 1919.29:
+        print(f'음: 6 옥타브 라#')
+    elif max_value_frequency > 1919.29 and max_value_frequency < 2033.42:
+        print(f'음: 6 옥타브 시')
+    elif max_value_frequency > 2033.42 and max_value_frequency < 2154.33:
+        print(f'음: 7 옥타브 도')
+    elif max_value_frequency > 2154.33 and max_value_frequency < 2282.44:
+        print(f'음: 7 옥타브 도#')
+    elif max_value_frequency > 2282.44 and max_value_frequency < 2418.16:
+        print(f'음: 7 옥타브 레')
+    elif max_value_frequency > 2418.16 and max_value_frequency < 2561.95:
+        print(f'음: 7 옥타브 레#')
+    elif max_value_frequency > 2561.95 and max_value_frequency < 2714.29:
+        print(f'음: 7 옥타브 미')
+    elif max_value_frequency > 2714.29 and max_value_frequency < 2875.69:
+        print(f'음: 7 옥타브 파')
+    elif max_value_frequency > 2875.69 and max_value_frequency < 3046.69:
+        print(f'음: 7 옥타브 파#')
+    elif max_value_frequency > 3046.69 and max_value_frequency < 3227.85:
+        print(f'음: 7 옥타브 솔')
+    elif max_value_frequency > 3227.85 and max_value_frequency < 3419.79:
+        print(f'음: 7 옥타브 솔#')
+    elif max_value_frequency > 3419.79 and max_value_frequency < 3623.14:
+        print(f'음: 7 옥타브 라')
+    elif max_value_frequency > 3623.14 and max_value_frequency < 3838.59:
+        print(f'음: 7 옥타브 라#')
 
     #max_index = np.argmax(freq_value)
     #print(max_index)
